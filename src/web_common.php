@@ -120,14 +120,14 @@ function printFooter() {
 }
 
 function printStatSelect(string $stat) {
-    $opt = function(string $name) use($stat) {
+    $opt = function(string $name, string $title) use($stat) {
         $selected = $name === $stat ? " selected" : "";
-        echo "<option$selected>$name</option>\n";
+        echo "<option$selected $title>$name</option>\n";
     };
     echo "<select name=\"stat\">\n";
     // Not listed: context-switches, cpu-migrations, page-faults
-    $opt("instructions");
-    $opt("max-rss");
+    $opt("instructions", "");
+    $opt("max-rss", "");
     $opt("task-clock");
     $opt("cycles");
     $opt("branches");
